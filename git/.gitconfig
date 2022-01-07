@@ -1,15 +1,36 @@
 [user]
 	name = Rakesh Chatrath
-    email = rakesh.chatrath@shopify.com
-
-[alias] 
+	email = rakesh.chatrath@shopify.com
+[core]
+	commitGraph = true
+	excludesfile = ~/.gitignore
+[diff]
+	algorithm = patience
+[gc]
+	writeCommitGraph = true
+[protocol]
+	version = 2
+[url "https://github.com/Shopify/"]
+	insteadOf = git@github.com:Shopify/
+	insteadOf = git@github.com:shopify/
+	insteadOf = ssh://git@github.com/Shopify/
+	insteadOf = ssh://git@github.com/shopify/
+[alias]
     graph = log --graph --decorate --oneline
-
-[merge]
-    keepBackup = false
-    tool = "custom-p4merge"
-[mergetool "custom-p4merge"]
-    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""
-    trustExitCode = false
-    keepBackup = false
-    keepTemporaries = false
+    opush = push origin head
+    ppush = push origin +head
+    staging = push origin +head:staging
+    op = opush
+	pp = ppush
+    st = staging
+    rb = !git fetch && git rebase -i origin/master
+[credential]
+	helper =
+	helper = store --file /opt/dev/var/private/git_credential_store
+[pull]
+	ff = only
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
