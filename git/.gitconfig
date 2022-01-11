@@ -20,6 +20,7 @@
     opush = push origin head
     ppush = push origin +head
     staging = push origin +head:staging
+    co = checkout
     op = opush
 	pp = ppush
     st = staging
