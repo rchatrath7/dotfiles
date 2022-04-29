@@ -35,6 +35,7 @@ function! UserInit()
   Plug 'burntsushi/ripgrep'
   Plug 'shopify/shadowenv.vim'
   Plug 'pechorin/any-jump.vim'
+  Plug 'numToStr/Comment.nvim'
 
 endfunction
 

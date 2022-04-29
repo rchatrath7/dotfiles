@@ -128,3 +128,8 @@ if [ -z $SPIN ]; then
 fi
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+# cloudplatform: add Shopify clusters to your local kubernetes config
+export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/rchatrath/.kube/config:/Users/rchatrath/.kube/config.shopify.cloudplatform
+for file in /Users/rchatrath/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
+kubectl-short-aliases
