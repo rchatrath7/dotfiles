@@ -1,0 +1,2 @@
+--max-columns=300
+--glob=!**/__cassettes__/**

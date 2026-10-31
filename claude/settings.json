@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/Users/rchatrath/.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/**)",
+      "Bash(/Users/rchatrath/.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/scripts/*.sh *)",
+      "Bash(pnpm run --silent grafana-query*)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "comment-checker"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "ralph-loop@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "medium",
+  "fastMode": true,
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark-daltonized",
+  "skipAutoPermissionPrompt": true,
+  "bashCommandPermissionMode": "ask"
+}

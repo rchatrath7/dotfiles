@@ -1,18 +1,21 @@
 [user]
 	name = Rakesh Chatrath
-	email = rakesh.chatrath@shopify.com
+	email = rakesh@socket.dev
+	signingkey = ~/.ssh/id_ed25519.pub
+	signkey = ~/.ssh/id_ed25519.pub
 [core]
 	excludesfile = ~/.gitignore
 [alias]
     graph = log --graph --decorate --oneline
-    opush = push origin head
-    ppush = push origin +head
+    opush = push -u origin head
+    ppush = push -u origin +head
     staging = push origin +head:staging
     co = checkout
     op = opush
-	pp = ppush
+    pp = ppush
     st = staging
-    rb = !git fetch && git rebase -i origin/master
+    rb = !git fetch && git rebase -i origin/master && git submodule update --rebase
+    pull = git pull && git submodule update 
 [pull]
 	ff = only
 [filter "lfs"]
@@ -21,4 +24,15 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [include]
-	path = /Users/rchatrath/.config/dev/gitconfig
+	path = ~/.config/dev/gitconfig
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[merge]
+	tool = nvimdiff
+[gpg]
+	format = ssh
+	program = /opt/homebrew/bin/gpg
+[commit]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers

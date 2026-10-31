@@ -1,0 +1,6 @@
+**/r.json
+**/d.json
+**/git-tmp
+
+**/.claude/settings.local.json
+.janus/

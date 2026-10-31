@@ -1,0 +1,8 @@
+theme = Rose Pine
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+cursor-color = #d1918f
+font-size = 14
+scrollback-limit = 10000000
+macos-option-as-alt=right
